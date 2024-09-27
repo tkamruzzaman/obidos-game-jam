@@ -13,6 +13,9 @@ public class ConversationManager : MonoBehaviour
     [SerializeField] AudioSource mainAudioSource;
     [SerializeField] AudioSource secendoryAudioSource;
 
+    [SerializeField] AudioClip gameSuccessSound;
+    [SerializeField] AudioClip gameOverSound;
+
     [SerializeField][Range(5, 10)] float waitingForInputTime = 5;
 
     private void Awake()
@@ -37,6 +40,8 @@ public class ConversationManager : MonoBehaviour
         {
             conversationModule.duration = conversationModule.audioClip.length + 1.0f;
         }
+
+        GameManager.Instance.OnGameOver += OnGameOver;
     }
 
     //oparator
@@ -75,9 +80,11 @@ public class ConversationManager : MonoBehaviour
     public void PlayRightNumber(int index)
     {
         PlayAudio(correctConversations[index], mainAudioSource);
+        StartCoroutine(ShowGameSuccess());
     }
-    IEnumerator ShowGameSuccess(){
-        yield return new WaitForSeconds(GetRightNumberClipLength(0) +1);
+    IEnumerator ShowGameSuccess()
+    {
+        yield return new WaitForSeconds(GetRightNumberClipLength(0) + 1);
         GameManager.Instance.GameSuccess();
     }
     public float GetRightNumberClipLength(int index)
@@ -97,6 +104,14 @@ public class ConversationManager : MonoBehaviour
         audioSource.clip = conversationModule.audioClip;
         audioSource.Play();
 
+    }
+
+    private void OnGameOver(bool isSuccess)
+    {
+        if (mainAudioSource.isPlaying) mainAudioSource.Stop();
+        if (secendoryAudioSource.isPlaying) secendoryAudioSource.Stop();
+
+        secendoryAudioSource.PlayOneShot(isSuccess ? gameSuccessSound : gameOverSound);
     }
 }
 

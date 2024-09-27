@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public Action<bool> OnGameOver = delegate { };
     public static GameManager Instance;
 
     public bool isPhoneRang;
@@ -72,12 +74,14 @@ public class GameManager : MonoBehaviour
         print("GAME OVER!");
 
         ScreenManager.Instance.EnableGameOverScreen();
+        OnGameOver?.Invoke(false);
     }
 
-    public void GameSuccess(){
-
+    public void GameSuccess()
+    {
         isGameEnded = true;
         print("SUCCESS!!!!!!!!");
         ScreenManager.Instance.ShowGameSuccessScreen();
+        OnGameOver?.Invoke(true);
     }
 }

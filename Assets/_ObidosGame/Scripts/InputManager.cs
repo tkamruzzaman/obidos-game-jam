@@ -67,7 +67,12 @@ public class InputManager : MonoBehaviour
             case "down":
                 print("down");
                 IsHungup = true;
-                GameManager.Instance.EndGame();
+                if (GameManager.Instance.isPhoneRang 
+                && GameManager.Instance.isGameStarted
+                && !GameManager.Instance.isGameEnded)
+                { 
+                    GameManager.Instance.EndGame(); 
+                }
                 break;
             case "0":
                 //print("0");

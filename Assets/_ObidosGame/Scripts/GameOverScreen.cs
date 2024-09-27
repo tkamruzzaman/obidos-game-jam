@@ -12,19 +12,25 @@ public class GameOverScreen : MonoBehaviour
 
     [SerializeField] Button restartButton;
 
-    private void Awake() {
-        restartButton.onClick.AddListener(()=>{
+    private void Awake()
+    {
+        restartButton.onClick.AddListener(() =>
+        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         });
     }
 
-    public void GameOverSet(bool isSuccess){
-        if(isSuccess){
-gameoverText.text = "Congratulation!\nYou have WON!";
-gameOverImage.color = Color.green;
-        }else{
-gameoverText.text = "GAME OVER!";
-gameOverImage.color = Color.red;
+    public void GameOverSet(bool isSuccess)
+    {
+        if (isSuccess)
+        {
+            gameoverText.text = "Congratulation!\nYou have WON!";
+            gameOverImage.color = Color.green;
+        }
+        else
+        {
+            gameoverText.text = "GAME OVER!";
+            gameOverImage.color = Color.red;
         }
     }
 }

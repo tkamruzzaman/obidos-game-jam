@@ -345,23 +345,25 @@ MonoBehaviour:
   wrongConversations:
   - audioClip: {fileID: 8300000, guid: 70eeec9ab505a41b3842b8502ccf7f9a, type: 3}
     Text: 11111111
-    correctInput: 111
+    correctInput: '*500#'
     duration: 0
   - audioClip: {fileID: 8300000, guid: a6aa3e6859f9640b69bf610019f6447b, type: 3}
     Text: 222222
-    correctInput: 222
+    correctInput: '*500#'
     duration: 0
   - audioClip: {fileID: 8300000, guid: 5759d648ca3a747558ce5d868373ce3b, type: 3}
     Text: 333333
-    correctInput: 333
+    correctInput: '*1200#'
     duration: 0
   correctConversations:
-  - audioClip: {fileID: 8300000, guid: 21dfdbc6cb7d84c2b917cd30ddad3ea2, type: 3}
+  - audioClip: {fileID: 8300000, guid: c2b82f0e5843f4477b72158741798f45, type: 3}
     Text: FFFFFFF
     correctInput: 000
     duration: 0
   mainAudioSource: {fileID: 1770958449}
   secendoryAudioSource: {fileID: 1849515870}
+  gameSuccessSound: {fileID: 8300000, guid: 0dca248c9b547473eae311f45fd22ab6, type: 3}
+  gameOverSound: {fileID: 8300000, guid: 1151f8499e9704778af28a250cd28b73, type: 3}
   waitingForInputTime: 5
 --- !u!1 &366438764
 GameObject:
@@ -1083,8 +1085,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1213.9208, y: 350}
+  m_AnchoredPosition: {x: 0, y: -30}
+  m_SizeDelta: {x: 672, y: 301}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &816362147
 MonoBehaviour:
@@ -1119,7 +1121,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Waiting...
+  m_text: Waiting for Input...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1128,8 +1130,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278255398
+  m_fontColor: {r: 0.14909172, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1146,8 +1148,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1207,7 +1209,6 @@ GameObject:
   - component: {fileID: 928989225}
   - component: {fileID: 928989228}
   - component: {fileID: 928989227}
-  - component: {fileID: 928989226}
   m_Layer: 5
   m_Name: GameOverText
   m_TagString: Untagged
@@ -1234,19 +1235,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 96.9}
   m_SizeDelta: {x: 1213.9208, y: 400.53}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &928989226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 928989224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e32c266ee6204b21a427753cb0694c81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RevealSpeed: 0.5
 --- !u!114 &928989227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1452,6 +1440,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'Do you really wanna connect??
+
 
     Pick up..... or NOT, it''s up to you!'
   m_isRightToLeft: 0
@@ -1659,10 +1648,10 @@ MonoBehaviour:
   startText: {fileID: 2018262434}
   phoneRingText: {fileID: 1131763359}
   textWaitTime: 1
-  text01Time: 1
-  text02Time: 1
+  text01Time: 3
+  text02Time: 3.5
   phoneRingMinDelay: 5
-  phoneRingMaxDelay: 5
+  phoneRingMaxDelay: 10
 --- !u!1001 &1500607773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1878,7 +1867,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1605409723
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1971,7 +1960,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1665858437
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2394,7 +2383,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1213.9208, y: 264.8}
+  m_SizeDelta: {x: 523, y: 148}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1884632258
 MonoBehaviour:
@@ -2425,8 +2414,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4281216558
+  m_fontColor: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
