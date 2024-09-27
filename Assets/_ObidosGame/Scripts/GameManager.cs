@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    public bool isPhoneRang;
+    public bool isIntroEnded;
+    public bool isGameStarted;
+    public bool isGameEnded;
+
     private void Awake()
     {
         if (Instance == null)
@@ -13,12 +20,58 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void StartGame(){
-        //show the start screen
+    private void Start()
+    {
+        StartIntro();
+        InputManager.Instance.OnWaitingForInputCompleted += OnWaitingForInputCompleted;
+
     }
 
-    public void EndGame(){
-       //show the game over screen
-       
+    public void StartIntro()
+    {
+        //show the start screen
+        ScreenManager.Instance.EnableStartScreen();
+    }
+
+    public void StartGame()
+    {
+        isGameStarted = true;
+
+        ScreenManager.Instance.EnableGameScreen();
+    }
+
+    private void OnWaitingForInputCompleted()
+    {
+        print("oooooooooooooooooooooooooooooooooo");
+        Play();
+    }
+
+public int doneClipNo;
+    public void Play()
+    {
+        ScreenManager.Instance.EnableGameScreen();
+        if(doneClipNo <3)
+        //play wrong
+        ScreenManager.Instance.GetGameScreen().Play(doneClipNo);
+        //play wrong
+        //ScreenManager.Instance.GetGameScreen().Play(1);
+
+        //play wrong
+        //ScreenManager.Instance.GetGameScreen().Play(2);
+
+        //play right
+        else
+        ConversationManager.Instance.PlayRightNumber(0);
+    }
+
+    public int GetCurrentWrongNumberIndex(){return doneClipNo;}
+
+    public void EndGame()
+    {
+        isGameEnded = true;
+        //show the game over screen
+        print("GAME OVER!");
+
+        ScreenManager.Instance.EnableGameOverScreen();
     }
 }
