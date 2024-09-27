@@ -1,18 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameOverScreen : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    [SerializeField] TMP_Text gameoverText;
+    [SerializeField] Image gameOverImage;
+
+    [SerializeField] Button restartButton;
+
+    private void Awake() {
+        restartButton.onClick.AddListener(()=>{
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        });
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void GameOverSet(bool isSuccess){
+        if(isSuccess){
+gameoverText.text = "Congratulation!\nYou have WON!";
+gameOverImage.color = Color.green;
+        }else{
+gameoverText.text = "GAME OVER!";
+gameOverImage.color = Color.red;
+        }
     }
 }

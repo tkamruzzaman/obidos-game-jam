@@ -41,12 +41,12 @@ public class WaitingForInputScreen : MonoBehaviour
                 //InputManager.Instance.ResetPlayerInput();
                 //game start
                 GameManager.Instance.StartGame();
-                                InputManager.Instance.InputCompleted();
+                InputManager.Instance.InputCompleted();
 
             }
             else if (GameManager.Instance.isGameStarted
             && !GameManager.Instance.isGameEnded
-            && InputManager.Instance.IsPlayerInputCorrect(ConversationManager.Instance.GetWrongNumberCorrectInput(GameManager.Instance.GetCurrentWrongNumberIndex()-1)))
+            && InputManager.Instance.IsPlayerInputCorrect(ConversationManager.Instance.GetWrongNumberCorrectInput(GameManager.Instance.GetCurrentWrongNumberIndex() - 1)))
             {
                 //go to next clip
                 print("]]]]]]]]............RITGH...............[[[[[]]]]]");

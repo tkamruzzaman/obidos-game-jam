@@ -76,6 +76,10 @@ public class ConversationManager : MonoBehaviour
     {
         PlayAudio(correctConversations[index], mainAudioSource);
     }
+    IEnumerator ShowGameSuccess(){
+        yield return new WaitForSeconds(GetRightNumberClipLength(0) +1);
+        GameManager.Instance.GameSuccess();
+    }
     public float GetRightNumberClipLength(int index)
     {
         return correctConversations[index].duration;

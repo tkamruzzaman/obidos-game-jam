@@ -46,6 +46,7 @@ public class ScreenManager : MonoBehaviour
     {
         DisableAll();
         gameOverScreen.gameObject.SetActive(true);
+        gameOverScreen.GameOverSet(false);
     }
 
     public void DisableGameOverScreen()
@@ -72,8 +73,12 @@ public class ScreenManager : MonoBehaviour
         waitingForInputScreen.gameObject.SetActive(false);
     }
 
-    internal GameScreen GetGameScreen()
+    internal GameScreen GetGameScreen() => gameScreen;
+
+    internal void ShowGameSuccessScreen()
     {
-        return gameScreen;
+        DisableAll();
+        gameOverScreen.gameObject.SetActive(true);
+        gameOverScreen.GameOverSet(true);
     }
 }

@@ -46,25 +46,24 @@ public class GameManager : MonoBehaviour
         Play();
     }
 
-public int doneClipNo;
+    public int doneClipNo;
     public void Play()
     {
         ScreenManager.Instance.EnableGameScreen();
-        if(doneClipNo <3)
-        //play wrong
-        ScreenManager.Instance.GetGameScreen().Play(doneClipNo);
-        //play wrong
-        //ScreenManager.Instance.GetGameScreen().Play(1);
-
-        //play wrong
-        //ScreenManager.Instance.GetGameScreen().Play(2);
+        if (doneClipNo < 3)
+        {
+            //play wrong
+            ScreenManager.Instance.GetGameScreen().Play(doneClipNo);
+        }
 
         //play right
         else
-        ConversationManager.Instance.PlayRightNumber(0);
+        {
+            ConversationManager.Instance.PlayRightNumber(0);
+        }
     }
 
-    public int GetCurrentWrongNumberIndex(){return doneClipNo;}
+    public int GetCurrentWrongNumberIndex() { return doneClipNo; }
 
     public void EndGame()
     {
@@ -73,5 +72,12 @@ public int doneClipNo;
         print("GAME OVER!");
 
         ScreenManager.Instance.EnableGameOverScreen();
+    }
+
+    public void GameSuccess(){
+
+        isGameEnded = true;
+        print("SUCCESS!!!!!!!!");
+        ScreenManager.Instance.ShowGameSuccessScreen();
     }
 }
