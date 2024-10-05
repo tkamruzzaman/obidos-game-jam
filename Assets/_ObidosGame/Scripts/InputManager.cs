@@ -8,7 +8,11 @@ using UnityEngine.Rendering;
 
 public class InputManager : MonoBehaviour
 {
+    public Action OnPickupPhone = delegate{};
+    public Action OnPutDownPhone = delegate{};
     public Action OnWaitingForInputCompleted = delegate { };
+    public Action<int> OnDialNumber = delegate{};
+    public Action<string> OnDialSpecialCharacter=delegate{};
 
     public static InputManager Instance;
     private SerialController serialController;
@@ -17,6 +21,8 @@ public class InputManager : MonoBehaviour
     public bool IsWaitingForInput { get; set; }
 
     string playerDialInput;
+
+    [SerializeField] private bool isToUseDummyInput;
 
 
     private void Awake()
@@ -34,10 +40,65 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
-        // if (Input.GetKeyDown(KeyCode.Space))
-        // {
-        //     Debug.Log("Sending some action");
-        // }
+        if (!isToUseDummyInput)
+        {
+            return;
+        }
+
+        string str = null;
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            str = "up";
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            str = "down";
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            str = "0";
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            str = "1";
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            str = "2";
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            str = "3";
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            str = "4";
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            str = "5";
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            str = "6";
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            str = "7";
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            str = "8";
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            str = "9";
+        }
+        if (str != null)
+        {
+            OnMessageArrived(str);
+            //print(str);
+        }
     }
 
 
@@ -53,6 +114,7 @@ public class InputManager : MonoBehaviour
         switch (msg)
         {
             case "up":
+            OnPickupPhone?.Invoke();
                 print("up");
                 if (GameManager.Instance.isPhoneRang
                 && !GameManager.Instance.isGameStarted
@@ -65,50 +127,63 @@ public class InputManager : MonoBehaviour
                 }
                 break;
             case "down":
+            OnPutDownPhone?.Invoke();
                 print("down");
                 IsHungup = true;
-                if (GameManager.Instance.isPhoneRang 
+                if (GameManager.Instance.isPhoneRang
                 && GameManager.Instance.isGameStarted
                 && !GameManager.Instance.isGameEnded)
-                { 
-                    GameManager.Instance.EndGame(); 
+                {
+                    GameManager.Instance.EndGame();
                 }
                 break;
             case "0":
                 //print("0");
+                OnDialNumber?.Invoke(0);
                 break;
             case "1":
                 //print("1");
+                OnDialNumber?.Invoke(1);
                 break;
             case "2":
                 //print("2");
+                OnDialNumber?.Invoke(2);
                 break;
             case "3":
                 // print("3");
+                OnDialNumber?.Invoke(3);
                 break;
             case "4":
                 //  print("4");
+                OnDialNumber?.Invoke(4);
                 break;
             case "5":
                 // print("5");
+                OnDialNumber?.Invoke(5);
                 break;
             case "6":
                 //print("6");
+                OnDialNumber?.Invoke(6);
                 break;
             case "7":
                 //print("7");
+                OnDialNumber?.Invoke(7);
                 break;
             case "8":
                 // print("8");
+                OnDialNumber?.Invoke(8);
                 break;
             case "9":
                 // print("9");
+                OnDialNumber?.Invoke(9);
                 break;
             case "*":
                 // print("*");
+                OnDialSpecialCharacter?.Invoke("*");
                 break;
             case "#":
                 // print("#");
+                OnDialSpecialCharacter?.Invoke("#");
                 break;
 
         }
@@ -140,8 +215,11 @@ public class InputManager : MonoBehaviour
     public void Ring()
     {
         print("ring");
+        if(isToUseDummyInput){
+            SoundManager.Instance.PlayPhoneRingSound();
+        }else{
         serialController.SendSerialMessage("Ring");
-    }
+    }}
 
     public IEnumerator StartOparator()
     {
