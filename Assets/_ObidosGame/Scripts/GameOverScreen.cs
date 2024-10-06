@@ -12,6 +12,9 @@ public class GameOverScreen : MonoBehaviour
 
     [SerializeField] Button restartButton;
 
+    [SerializeField] Sprite gameSuccessSprite;
+    [SerializeField] Sprite gameFailedSprite;
+
     private void Awake()
     {
         restartButton.onClick.AddListener(() =>
@@ -25,12 +28,12 @@ public class GameOverScreen : MonoBehaviour
         if (isSuccess)
         {
             gameoverText.text = "Congratulation!\nYou have WON!";
-            gameOverImage.color = Color.green;
+            gameOverImage.sprite = gameSuccessSprite;
         }
         else
         {
             gameoverText.text = "GAME OVER!";
-            gameOverImage.color = Color.red;
+            gameOverImage.sprite = gameFailedSprite;
         }
     }
 }
