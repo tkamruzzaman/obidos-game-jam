@@ -6,6 +6,7 @@ using UnityEngine;
 public class ConversationManager : MonoBehaviour
 {
     public static ConversationManager Instance;
+    
     [SerializeField] ConversationModule[] oparatorConversations;
     [SerializeField] ConversationModule[] wrongConversations;
     [SerializeField] ConversationModule[] correctConversations;
@@ -17,6 +18,7 @@ public class ConversationManager : MonoBehaviour
     [SerializeField] AudioClip gameOverSound;
 
     [SerializeField][Range(5, 10)] float waitingForInputTime = 5;
+
 
     private void Awake()
     {

@@ -473,15 +473,27 @@ MonoBehaviour:
   wrongConversations:
   - audioClip: {fileID: 8300000, guid: 70eeec9ab505a41b3842b8502ccf7f9a, type: 3}
     Text: 11111111
-    correctInput: '*500#'
+    correctInput: 353
     duration: 0
   - audioClip: {fileID: 8300000, guid: a6aa3e6859f9640b69bf610019f6447b, type: 3}
     Text: 222222
-    correctInput: '*500#'
+    correctInput: 234
     duration: 0
   - audioClip: {fileID: 8300000, guid: 5759d648ca3a747558ce5d868373ce3b, type: 3}
     Text: 333333
-    correctInput: '*1200#'
+    correctInput: 115
+    duration: 0
+  - audioClip: {fileID: 8300000, guid: 5759d648ca3a747558ce5d868373ce3b, type: 3}
+    Text: 444444
+    correctInput: 770
+    duration: 0
+  - audioClip: {fileID: 8300000, guid: 5759d648ca3a747558ce5d868373ce3b, type: 3}
+    Text: 5555555
+    correctInput: 419
+    duration: 0
+  - audioClip: {fileID: 8300000, guid: 5759d648ca3a747558ce5d868373ce3b, type: 3}
+    Text: 6666666
+    correctInput: 666
     duration: 0
   correctConversations:
   - audioClip: {fileID: 8300000, guid: c2b82f0e5843f4477b72158741798f45, type: 3}
@@ -1479,9 +1491,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9d0105b1872a34a1086f8fab31d7307d, type: 3}
+  m_Sprite: {fileID: 563492870, guid: cafd24f197918470bb681ea62b761bf1, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1514,8 +1526,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 565.058, y: -343.86987}
-  m_SizeDelta: {x: 396.116, y: 141.7397}
+  m_AnchoredPosition: {x: 595, y: -343}
+  m_SizeDelta: {x: 548.0085, y: 194.3639}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &816362145
 GameObject:
@@ -1963,15 +1975,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.26017138, g: 0.7169812, b: 0.09807763, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 563492870, guid: cafd24f197918470bb681ea62b761bf1, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2155,7 +2167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1147271786
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2168,6 +2180,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2142343880}
   - {fileID: 461362180}
   - {fileID: 1665858437}
   - {fileID: 2122159651}
@@ -2196,6 +2209,7 @@ MonoBehaviour:
   playButton: {fileID: 1118561099}
   startRect: {fileID: 461362180}
   gameBackStoryVideo: {fileID: 1484647576}
+  phoneRingPanelRect: {fileID: 2142343880}
   introText01: {fileID: 1665858438}
   introText02: {fileID: 2122159652}
   startText: {fileID: 2018262434}
@@ -2461,8 +2475,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281524223
-  m_fontColor: {r: 1, g: 0.8745098, b: 0.19607843, a: 1}
+    rgba: 4279849399
+  m_fontColor: {r: 0.7176471, g: 0.31764323, b: 0.0980392, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2580,14 +2594,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.46407878, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7482667652216324306, guid: 90df7cdc429d54877bddd94485acefee, type: 3}
+  m_Sprite: {fileID: 1548985631, guid: 5174076d3f0a041b68a8b3c55564e62e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3234,8 +3248,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283124555
-  m_fontColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 1}
+    rgba: 4278517601
+  m_fontColor: {r: 0.3807481, g: 1, b: 0.0141509175, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3252,7 +3266,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 65.2
+  m_fontSize: 59.8
   m_fontSizeBase: 75
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3288,7 +3302,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 21.032104, y: 0, z: 19.986084, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3653,8 +3667,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292214745
-  m_fontColor: {r: 0.84933776, g: 1, b: 0.8349056, a: 1}
+    rgba: 4281864413
+  m_fontColor: {r: 0.8679245, g: 0.061409745, b: 0.2185372, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3870,6 +3884,81 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RevealSpeed: 2.5
+--- !u!1 &2142343879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2142343880}
+  - component: {fileID: 2142343882}
+  - component: {fileID: 2142343881}
+  m_Layer: 5
+  m_Name: PhoneRingPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &2142343880
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142343879}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1147271786}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2142343881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142343879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 093010a67e0fc4888a2b8475118059f7, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2142343882
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142343879}
+  m_CullTransparentMesh: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

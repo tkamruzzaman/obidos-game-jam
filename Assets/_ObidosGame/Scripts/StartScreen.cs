@@ -12,6 +12,8 @@ public class StartScreen : MonoBehaviour
     [SerializeField] Button playButton;
     [SerializeField] RectTransform startRect;
     [SerializeField] VideoPlayer gameBackStoryVideo;
+    [SerializeField] RectTransform phoneRingPanelRect;
+
     [SerializeField] TMP_Text introText01;
     [SerializeField] TMP_Text introText02;
 
@@ -29,41 +31,23 @@ public class StartScreen : MonoBehaviour
     {
         playButton.onClick.AddListener(PlayButtonAction);
         print(gameBackStoryVideo.clip.length);
+        phoneRingPanelRect.gameObject.SetActive(false);
+    }
+
+    private void Start()
+    {
+        InputManager.Instance.OnPickupPhone += OnPickupPhone;
     }
 
     void Update()
     {
         if (GameManager.Instance.isIntroEnded) { return; }
 
-        // textWaitTime -= Time.deltaTime;
-
-        // if (textWaitTime <= 0.0f)
-        // {
-        //     introText01.gameObject.SetActive(true);
-        //     text01Time -= Time.deltaTime;
-        //     if (text01Time <= 0.0f)
-        //     {
-        //         introText01.gameObject.SetActive(false);
-        //         introText02.gameObject.SetActive(true);
-        //         text02Time -= Time.deltaTime;
-        //         if (text02Time <= 0)
-        //         {
-        //             introText02.gameObject.SetActive(false);
-
-        //             startText.gameObject.SetActive(true);
-        //             Invoke(nameof(RingPhone), Random.Range(phoneRingMinDelay, phoneRingMaxDelay));
-        //             GameManager.Instance.isIntroEnded = true;
-        //         }
-        //     }
-        // }
-
         if (GameManager.Instance.isPhoneRang && InputManager.Instance.IsHungup)
         {
             GameManager.Instance.EndGame();
         }
     }
-
-
 
     private void PlayButtonAction()
     {
@@ -75,6 +59,8 @@ public class StartScreen : MonoBehaviour
     private IEnumerator IE_StartGame()
     {
         yield return new WaitForSeconds((float)(gameBackStoryVideo.length + 0.5f));
+        phoneRingPanelRect.gameObject.SetActive(true);
+
         gameBackStoryVideo.gameObject.SetActive(false);
 
         GameManager.Instance.isIntroEnded = true;
@@ -90,9 +76,12 @@ public class StartScreen : MonoBehaviour
         GameManager.Instance.isPhoneRang = true;
 
         InputManager.Instance.Ring();
+    }
 
-        //gameObject.SetActive(false);
+    private void OnPickupPhone()
+    {
         phoneRingText.gameObject.SetActive(false);
+
     }
 
 }

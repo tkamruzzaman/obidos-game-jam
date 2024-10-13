@@ -45,7 +45,7 @@ public class InputManager : MonoBehaviour
             return;
         }
 
-        string str = null;
+        string str = "";
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             str = "up";
